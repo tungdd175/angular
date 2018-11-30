@@ -15,7 +15,13 @@ export class ForecastsComponent implements OnInit {
   forecastDaily: ForecastDaily;
 
   ngOnInit() {
-    this.forecastService.getForecasts().subscribe(data => this.forecastDaily = data.list);
+    // this.forecastService.getForecasts().subscribe(data => this.forecastDaily = data.list);
   }
 
+  search(address: string): void {
+    if (!address) {
+      console.warn('Address must be not empty');
+    }
+    this.forecastService.getForecastDaily(address).subscribe(data => this.forecastDaily = data.list);
+  }
 }

@@ -12,10 +12,20 @@ export class ForecastService {
   constructor(private http: HttpClient) {
   }
 
-  private API_URL = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=Ha%20Noi&mode=json&units=metric&cnt=7&lang=vi&APPID=421612f4c4fd7e87a2399806a781659c';
+  // private API_URL = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=Ha%20Noi&mode=json&units=metric&cnt=7&lang=vi&APPID=421612f4c4fd7e87a2399806a781659c';
+  private API_URL_FORECAST = 'http://api.openweathermap.org/data/2.5/forecast';
 
-  getForecasts(): Observable<any> {
-    return this.http.get<ForecastModel>(this.API_URL).pipe(
+  getForecastDaily(address: string): Observable<any> {
+    return this.http.get<ForecastModel>(this.API_URL_FORECAST + '/daily', {
+      params: {
+        q: address,
+        mode: 'json',
+        units: 'metric',
+        cnt: '7',
+        lang: 'vi',
+        APPID: '421612f4c4fd7e87a2399806a781659c'
+      }
+    }).pipe(
       tap(data => console.log(`getForecasts ${JSON.stringify(data)}`)),
       catchError(error => of(null))
     );

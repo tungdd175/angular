@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="row">
+    <input #address placeholder="City" >
+  </div>
+  <div class="row">
+    <button (click)="search(address.value)">Search</button>
+  </div>
   <ol class="forecast">
     <li class="forecastItem"
         *ngFor="let forecast of forecastDaily"
