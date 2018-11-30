@@ -1,0 +1,9 @@
+<div class="container">
+  <ol class="forecast">
+    <li class="forecastItem"
+        *ngFor="let forecast of forecastDaily"
+    >
+      {{forecast.dt}} - {{forecast.pressure}}
+    </li>
+  </ol>
+</div>
