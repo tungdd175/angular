@@ -1,0 +1,29 @@
+.forecast {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.forecast-item {
+  border: 1px dotted lightgrey;
+  font-size: 1em;
+  font-family: sans-serif, Tahoma;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.forecast-item:last-child {
+  margin-bottom: 0px;
+}
+
+.row > div {
+  padding: 0.325em;
+}
+
+#address {
+  padding: 5px;
+  width: 20em;
+}
+
+#search {
+  padding: 3px;
+}

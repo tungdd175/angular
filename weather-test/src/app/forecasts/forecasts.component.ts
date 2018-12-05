@@ -16,6 +16,7 @@ export class ForecastsComponent implements OnInit {
 
   ngOnInit() {
     // this.forecastService.getForecasts().subscribe(data => this.forecastDaily = data.list);
+    this.search('Ha noi');
   }
 
   search(address: string): void {

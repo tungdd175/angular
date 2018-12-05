@@ -1,15 +1,19 @@
 <div class="container">
-  <div class="row">
-    <input #address placeholder="City" >
+  <div class="header">
+    <div class="row">
+      <div>
+        <input id="address" #address placeholder="City">&nbsp;
+        <button id="search" (click)="search(address.value)">Search</button>
+      </div>
+    </div>
   </div>
-  <div class="row">
-    <button (click)="search(address.value)">Search</button>
+
+  <div class="forecast">
+    <div class="forecast-item" *ngFor="let forecast of forecastDaily">
+      <label>{{forecast.dt * 1000 | date}}</label>
+      <div>
+        <span>Nhiệt độ: {{forecast.temp.day}} &#x2103;</span>
+      </div>
+    </div>
   </div>
-  <ol class="forecast">
-    <li class="forecastItem"
-        *ngFor="let forecast of forecastDaily"
-    >
-      {{forecast.dt}} - {{forecast.pressure}}
-    </li>
-  </ol>
 </div>
